@@ -30,7 +30,7 @@ class Totalview extends React.Component {
     getdataRow = async () => {
         let result
         try {
-            let resp = await fetch('http://localhost:4000/info')
+            let resp = await fetch(`${process.env.GATSBY_APP_INFO}`)
             result = await resp.json()
         } catch (err) {
             console.error(err)
@@ -55,9 +55,9 @@ class Totalview extends React.Component {
         return (
             <>
                 <div className="row mt-3 text-center">
-                    <Card border="dark" text="white" bg="dark" >
+                    <Card border="dark" text="white" bg="danger" >
                         <Card.Body>
-                            <h1 className="fs-1" >ตรวจยึดอาวุธปืนรวม {this.state.total}</h1>
+                            <h1 className="display-2" >ตรวจยึดอาวุธปืนรวม {this.state.total}</h1>
                         </Card.Body>
                     </Card>
                 </div>

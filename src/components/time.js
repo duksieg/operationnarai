@@ -17,7 +17,7 @@ class Timer extends React.Component{
     render(){
         return(
             <div className="text-center">
-            <h1>{this.state.date.toLocaleTimeString()}</h1>
+            <h1>{this.state.date.toLocaleDateString('th-TH')}  {this.state.date.toLocaleTimeString()}</h1>
             {this.updatetime()}
             </div>
         )

@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.development`,
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -10,6 +14,7 @@ module.exports = {
     "gatsby-plugin-react-leaflet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    
   ],
   
 };
