@@ -7,7 +7,6 @@ class Personaldetail extends React.Component {
         this.state = {
             show: false,
             close: false,
-            folderid: ''
         };
     }
 
@@ -32,9 +31,6 @@ class Personaldetail extends React.Component {
         return result
     }
 
-    updateview = () => {
-        this.setState({ show: true })
-    }
 
     //let result = await this.getimagestate(this.state.folderid)
     //let str = JSON.stringify(result)
@@ -44,13 +40,26 @@ class Personaldetail extends React.Component {
 
 
     render() {
+        let imageurl
+        let specialcriminal = 'stretched-link'
+        if(this.props.userdetail.criminalimage ==null || this.props.userdetail.criminalimage=="" || this.props.userdetail.criminalimage==undefined){
+            imageurl=logo
+        }else{
+            imageurl = `https://drive.google.com/uc?id=${this.props.userdetail.criminalimage}`
+
+        }
+        if(this.props.userdetail.specialcase != null && this.props.userdetail.specialcase == 'TRUE'){
+            specialcriminal += ' bg-danger'
+        }
+        console.log(this.props.userdetail.specialcase)
         return (
             <>
-                <div className="card text-center border-0 my-2">
-                    <img src={logo} className="card-img-top align-self-center" alt="personal" style={{ width: '100px' }} />
+                <div className="card text-center border-0 my-2 bg-transparent">
+                    <p>{this.props.userdetail.pointno}</p>
+                    <img src={imageurl} className="card-img-top align-self-center" alt="personal" style={{ width: '100px' }} />
                     <div className="card-body">
                         <div className="btn" style={{ backgroundColor: 'transparent' }, { borderWidth: '0' }} >
-                            <p className="stretched-link" onClick={() => this.setState({ show: true })} style={{ fontSize: '1vw' }}>{this.props.userdetail.fullname}</p>
+                            <p className={specialcriminal} onClick={() => this.setState({ show: true })} style={{ fontSize: '1vw' }}>{this.props.userdetail.fullname}</p>
                         </div>
                     </div>
                 </div>
@@ -64,15 +73,17 @@ class Personaldetail extends React.Component {
                         </Modal.Header>
                         <Modal.Body>
                             <h3>{this.props.userdetail.fullname} </h3>
-                            <h4>พิกัด:{this.props.userdetail.latlng}</h4>
+                            <h4>พิกัด:{this.props.userdetail.pointlatlng}</h4>
                             <p>เลขบัตรประชาชน :{this.props.userdetail.idcard}</p>
-                            <p>หัวหน้าชุดเช้าค้น: {this.props.userdetail.headname} เบอร์ติดต่อ: {this.props.userdetail.contactno}</p>
+                            <p>หัวหน้าชุดเช้าค้น: {this.props.userdetail.headname} </p>
+                            <p>เบอร์ติดต่อ: {this.props.userdetail.contactno}</p>
                             <p>จำนวนผู้ต้องหาที่จับกุมได้ :  {this.props.userdetail.criminal}</p>
                             <p>จำนวนอาวุธปืนทั่วไป :{this.props.userdetail.normalgun}</p>
                             <p>จำนวนอาวุธปืนสงคราม :{this.props.userdetail.wargun}</p>
                             <p>จำนวนอาวุธปืนไทยประดิษฐ์ :{this.props.userdetail.thaicraftgun}</p>
                             <p>จำนวนเครื่องยุทธภัณฑ์ :{this.props.userdetail.ammunition}</p>
                             <p>อื่นๆ : {this.props.userdetail.etc}</p>
+                            <p>รวม : {this.props.userdetail.totalfound}</p>
 
                         </Modal.Body>
                         <Modal.Footer>

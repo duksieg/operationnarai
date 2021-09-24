@@ -6,24 +6,43 @@ import Mainstatus from "../components/mainstatus"
 import Timer from '../components/time'
 import LeafletMap from "../components/leafletmap"
 import Topuser from "../components/topuser"
-import PersonalLayout from "../components/PersonalLayout"
+import Charttotalguns from '../components/gunchart'
 // markup
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       user: null,
-      loading: true
+      loading: true,
+      all: null
     }
+  }
+  getdataRow = async () => {
+    let result
+    try {
+      let resp = await fetch('http://localhost:4000/info')
+      result = await resp.json()
+    } catch (err) {
+      console.error(err)
+    }
+    return result
   }
 
   async componentDidMount() {
     try {
-      let response = await fetch(process.env.GATSBY_APP_DETAIL)
+      let totalItem = await this.getdataRow()
+      let response = await fetch('http://localhost:4000/detail')
       let jsonresponse = await response.json()
       //arrystatus = jsonresponse.records
       if (jsonresponse != null) {
         this.setState({ user: jsonresponse, loading: false })
+      }
+      if (totalItem != null) {
+        this.setState(
+          {
+            all: totalItem
+          }
+        )
       }
     } catch (err) {
       this.setState({ loading: false })
@@ -32,18 +51,23 @@ class IndexPage extends React.Component {
   }
 
   gettop5rows() {
-    let topuser= []
+    let topuser = []
     let maximumRow = 6
-    let tempvalue ={}
+    let tempvalue = {}
     let sortable = [];
 
     if (this.state.user != null) {
       let allrows = this.state.user.records
       //load user datarow to object as index:total
       for (let index = 0; index < allrows.length; index++) {
-        let total = allrows[index].totalfound
-        {tempvalue[index] =total}
+        if (allrows[index].totalfound > 0 && allrows[index].status == 'after' && allrows[index].pointno != null) {
+          let total = allrows[index].totalfound
+          { tempvalue[index] = total }
+        } else {
+          { tempvalue[index] = 0 }
+        }
       }
+
       //looptemp to sortable 
       for (var indexin in tempvalue) {
         sortable.push([indexin, tempvalue[indexin]]);
@@ -55,9 +79,9 @@ class IndexPage extends React.Component {
       for (let index = 0; index < maximumRow; index++) {
         let sortedIndex = sorted[index]
 
-        topuser.push(allrows[sortedIndex[0]] )
+        topuser.push(allrows[sortedIndex[0]])
       }
-    return topuser
+      return topuser
 
     } else {
       console.log('user is null')
@@ -73,19 +97,25 @@ class IndexPage extends React.Component {
         <div className={'row'}> <Timer /></div>
         <div className={'row'}>
           <div className={'col'}>
-            <Totalview></Totalview>
+            <Totalview overview={this.state.all == null ? <ShimmerSimpleGallery card imageHeight={100} row={1} col={4} caption /> : this.state.all}></Totalview>
           </div>
           <div className={'col'}>
-            <div className={'col col-rows-2'}>
-            <p className={'fs-1 text-center'}>เป้าที่มียอดสูงสุด</p>
-            <Topuser user={!this.state.user || this.state.loading ? <ShimmerSimpleGallery card imageHeight={100} row={1} col={4} gap={10} caption/> : this.gettop5rows()}> </Topuser>  
-            </div>
-            <div className={'container mt-4'}>
-            <LeafletMap user={!this.state.user || this.state.loading ? <ShimmerThumbnail rounded /> : this.state.user} ></LeafletMap>
+            <div className={'row col-rows-2'}>
+              <p className={'fs-1 text-center'}>เป้าที่มียอดสูงสุด</p>
+              <Topuser user={!this.state.user || this.state.loading ? <ShimmerSimpleGallery card imageHeight={100} row={1} col={4} gap={10} caption /> : this.gettop5rows()}> </Topuser>
             </div>
           </div>
         </div>
-        <div className="row">
+
+        <div className={'row mt-3'}>
+          <div className="col">
+            <Charttotalguns overview={this.state.all == null ? <ShimmerSimpleGallery card imageHeight={100} row={1} col={4} caption /> : this.state.all} ></Charttotalguns>
+          </div>
+          <div className={'col'}>
+          <LeafletMap user={!this.state.user || this.state.loading ? <ShimmerThumbnail rounded /> : this.state.user} ></LeafletMap>
+          </div>
+        </div>
+        <div className="row mt-3">
           <Mainstatus user={!this.state.user || this.state.loading ? <ShimmerSimpleGallery card imageHeight={100} row={2} col={3} gap={30} caption /> : this.state.user} ></Mainstatus>
         </div>
       </div>

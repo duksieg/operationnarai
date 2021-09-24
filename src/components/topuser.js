@@ -1,5 +1,6 @@
 import React from 'React'
-import Personaldetail from './personaldetail'
+import Personaldetail from '../components/personaldetail'
+import { v4 as uuidv4 } from 'uuid';
 class Topuser extends React.Component {
 
 
@@ -8,9 +9,12 @@ class Topuser extends React.Component {
         if (this.props.user != null) {
             let datarow = this.props.user
             datarow.forEach(userdatabyrow => {
-                let key = userdatabyrow.latlng + userdatabyrow.fullname
+                console.log(userdatabyrow+"add to temp")
+                let key = uuidv4()
+                if(userdatabyrow.totalfound >0)
                 tempArry.push(<Personaldetail userdetail={userdatabyrow} key={key} ></Personaldetail>)
             });
+            console.log(tempArry)
             return tempArry
         }else{
             return tempArry

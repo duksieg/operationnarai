@@ -7,12 +7,19 @@ const options = {
     plugins: {
         title: {
             display: true,
-            text: 'นารายณ์ปราบศาสตรา'
+            text: 'นารายณ์ปราบศาสตรา',
+            font: {
+                size: 20
+            }
         },
-        tooltip: {
-            enabled: true,
-            position: 'nearest'
-        }, legend: {
+        datalabels:{
+            anchor:'end',
+            align:'center',
+            font:{
+                size:30
+            }
+        },
+        legend: {
             display: false
         },
         scales: {
@@ -30,9 +37,9 @@ const options = {
 
 
 const Charttotalguns = (props) => {
-    console.log([ChartDataLabels])
-    let datainput = [props.normalgun, props.wargun, props.thaicraftgun, props.ammunition]
-    //datachart.datasets[0]['data']=datainput
+    let {normalgun,wargun,thaicraftgun,ammunition} = props.overview
+    let datainput = [normalgun, wargun, thaicraftgun, ammunition]
+    //datachartdatasets[0]['data']=datainput
     return (
         <>
             <Bar className="align-self-end"
@@ -41,24 +48,25 @@ const Charttotalguns = (props) => {
                     datasets: [
                         {
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)'
+                                'rgba(54, 162, 235, 02)',
+                                'rgba(255, 99, 132, 02)',
+                                'rgba(255, 206, 86, 02)',
+                                'rgba(75, 192, 192, 02)'
                             ],
                             borderColor: [
-                                'rgba(255, 99, 132, 1)',
                                 'rgba(54, 162, 235, 1)',
+                                'rgba(255, 99, 132, 1)',
                                 'rgba(255, 206, 86, 1)',
                                 'rgba(75, 192, 192, 1)'
                             ],
                             borderWidth: 1,
                             data: datainput
+                            
                         }
                     ]
                 }}
                 options={options}
-                plugins= {[ChartDataLabels]}
+                plugins={[ChartDataLabels]}
 
             />
         </>

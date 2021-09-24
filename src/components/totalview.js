@@ -9,46 +9,41 @@ const textinfo = {
     fontSize: '32px',
     fontSize: 'xx-large'
 }
-const textnormal = {
-    color: 'white',
-    fontSize: '20px',
-    fontSize: 'large'
-}
 
 
 
 class Totalview extends React.Component {
 
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            all: 0, notchecked: 0, before: 0, current: 0, after: 0, normalgun: 0, wargun: 0, thaicraftgun: 0, ammunition: 0, total: 0
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         all: 0, notchecked: 0, before: 0, current: 0, after: 0, normalgun: 0, wargun: 0, thaicraftgun: 0, ammunition: 0, total: 0
+    //     }
+    // }
 
-    getdataRow = async () => {
-        let result
-        try {
-            let resp = await fetch(`${process.env.GATSBY_APP_INFO}`)
-            result = await resp.json()
-        } catch (err) {
-            console.error(err)
-        }
-        return result
-    }
+    // getdataRow = async () => {
+    //     let result
+    //     try {
+    //         let resp = await fetch('http://localhost:4000/info')
+    //         result = await resp.json()
+    //     } catch (err) {
+    //         console.error(err)
+    //     }
+    //     return result
+    // }
 
-    async componentDidMount() {
-        let totalItem = await this.getdataRow()
-        if (totalItem != null) {
-            this.setState(
-                {
-                    all: totalItem['all'], notchecked: totalItem['notchecked'], before: totalItem['before'], current: totalItem['current']
-                    , after: totalItem['after'], normalgun: totalItem['normalgun'], wargun: totalItem['wargun'], thaicraftgun: totalItem['thaicraftgun'], ammunition: totalItem['ammunition'], total: totalItem['total']
-                }
-            )
-        }
-    }
+    // async componentDidMount() {
+    //     let totalItem = await this.getdataRow()
+    //     if (totalItem != null) {
+    //         this.setState(
+    //             {
+    //                 all: totalItem['all'], notchecked: totalItem['notchecked'], before: totalItem['before'], current: totalItem['current']
+    //                 , after: totalItem['after'], normalgun: totalItem['normalgun'], wargun: totalItem['wargun'], thaicraftgun: totalItem['thaicraftgun'], ammunition: totalItem['ammunition'], total: totalItem['total']
+    //             }
+    //         )
+    //     }
+    // }
 
 
     render() {
@@ -57,7 +52,7 @@ class Totalview extends React.Component {
                 <div className="row mt-3 text-center">
                     <Card border="dark" text="white" bg="danger" >
                         <Card.Body>
-                            <h1 className="display-2" >ตรวจยึดอาวุธปืนรวม {this.state.total}</h1>
+                            <h1 className="display-2" >ตรวจยึดอาวุธปืนรวม {this.props.overview.total}</h1>
                         </Card.Body>
                     </Card>
                 </div>
@@ -68,7 +63,7 @@ class Totalview extends React.Component {
                                 <p>ยอดรวมเป้าทั้งหมด</p>
                             </Card.Header>
                             <Card.Body>
-                                <h1> {this.state.all}</h1>
+                                <h1> {this.props.overview.all}</h1>
                             </Card.Body>
                         </Card>
                         <Card border="dark" bg="light"  width="auto">
@@ -76,7 +71,7 @@ class Totalview extends React.Component {
                                 <p >ยังไม่เช็คอิน</p>
                             </Card.Header>
                             <Card.Body>
-                                <h1> {this.state.notchecked}</h1>
+                                <h1> {this.props.overview.notchecked}</h1>
                             </Card.Body>
                         </Card>
                     </div>
@@ -87,7 +82,7 @@ class Totalview extends React.Component {
                                 <p>สถานะก่อนเข้าค้น</p>
                             </div>
                             <div className="col">
-                                <h1 > {this.state.before}</h1>
+                                <h1 > {this.props.overview.before}</h1>
                             </div>
                         </div>
                         </Card>
@@ -97,7 +92,7 @@ class Totalview extends React.Component {
                                 <p>สถานะกำลังเข้าค้น</p>
                             </div>
                             <div className="col">
-                                <h1 > {this.state.current}</h1>
+                                <h1 > {this.props.overview.current}</h1>
                             </div>
                         </div>
                         </Card>
@@ -107,15 +102,13 @@ class Totalview extends React.Component {
                                 <p>สถานะหลังเข้าค้น</p>
                             </div>
                             <div className="col">
-                                <h1 > {this.state.after}</h1>
+                                <h1 > {this.props.overview.after}</h1>
                             </div>
                         </div>
                         </Card>
                     </div>
                 </div>
-                <div className="row mt-4">
-                    <Charttotalguns normalgun={this.state.normalgun} wargun={this.state.wargun} thaicraftgun={this.state.thaicraftgun} ammunition={this.state.ammunition} ></Charttotalguns>
-                </div>
+                
             </>
 
         )
