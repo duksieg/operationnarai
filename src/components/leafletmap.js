@@ -3,6 +3,7 @@ import React from "react";
 import { MapContainer, Popup, TileLayer, Marker } from "react-leaflet";
 import L from 'leaflet'
 import Mapicon from '../components/mapicon'
+const isBrowser = typeof window !== "undefined"
 
 
 class LeafletMap extends React.Component {
