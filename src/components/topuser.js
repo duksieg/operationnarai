@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import Personaldetail from '../components/personaldetail'
 import { v4 as uuidv4 } from 'uuid';
 class Topuser extends React.Component {
