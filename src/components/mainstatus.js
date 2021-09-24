@@ -1,5 +1,4 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'
 import PersonalLayout from '../components/personallayout'
 class Mainstatus extends React.Component {
     constructor(props) {

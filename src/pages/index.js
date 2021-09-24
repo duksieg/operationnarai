@@ -1,5 +1,4 @@
 import * as React from "react"
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { ShimmerSimpleGallery, ShimmerThumbnail } from 'react-shimmer-effects'
 import Totalview from "../components/totalview"
 import Mainstatus from "../components/mainstatus"
@@ -7,6 +6,8 @@ import Timer from '../components/time'
 import LeafletMap from "../components/leafletmap"
 import Topuser from "../components/topuser"
 import Charttotalguns from '../components/gunchart'
+import 'bootstrap/dist/js/bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
 // markup
 
 const isBrowser = typeof window !== "undefined"

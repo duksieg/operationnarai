@@ -1,6 +1,5 @@
 
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 class Timer extends React.Component{
     state={
         date:new Date()
