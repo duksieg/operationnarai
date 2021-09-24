@@ -1,4 +1,4 @@
-import React from 'react'
+
 import L from 'leaflet'
 import greenicon from '../images/marker-icon-green.png'
 import blackicon from '../images/marker-icon-black.png'

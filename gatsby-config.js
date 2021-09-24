@@ -1,6 +1,7 @@
-// require("dotenv").config({
-//   path: `.env.development`,
-// })
+if (typeof window !== `undefined`){
+  require("dotenv").config({
+  path: `.env.development`,
+})}
 
 module.exports = {
   siteMetadata: {
