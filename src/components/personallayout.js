@@ -1,4 +1,4 @@
-import React from 'React'
+import React from 'react'
 import Personaldetail from '../components/personaldetail'
 
 class PersonalLayout extends React.Component{
