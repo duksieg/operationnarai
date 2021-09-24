@@ -2,15 +2,14 @@
 import React from "react";
 import { MapContainer, Popup, TileLayer, Marker } from "react-leaflet";
 import L from 'leaflet'
-import * as iconcustom from './mapicon'
+import Mapicon from '../components/mapicon'
 
 
 class LeafletMap extends React.Component {
 
-
   renderuserfromdata() {
     let temparry = []
-
+    const {greyIcon,yellowIcon,blueIcon,greenIcon,} = Mapicon()
     let result = this.props.user
     if (result != null) {
 
@@ -24,25 +23,25 @@ class LeafletMap extends React.Component {
              pointlatlng[1] = pointlatlng[1].substring(0, (pointlatlng[1].indexOf('.')) + 7)
               latlng =L.latLng(pointlatlng[0],pointlatlng[1])
           if (record.status=='before') {
-            temparry.push(<Marker key={record.pointno} position={latlng} icon={iconcustom.blueIcon} >
+            temparry.push(<Marker key={record.pointno} position={latlng} icon={blueIcon} >
               <Popup>
                 รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status}  กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
               </Popup>
             </Marker>)
           } else if (record.status=='after') {
-            temparry.push(<Marker key={record.pointno} position={latlng} icon={iconcustom.greenIcon} >
+            temparry.push(<Marker key={record.pointno} position={latlng} icon={greenIcon} >
               <Popup>
                 รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status} กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
               </Popup>
             </Marker>)
            } else if (record.status != 'before' || record.status != 'after' || record.status != 'current') {
-            temparry.push(<Marker key={record.pointno} position={latlng} icon={iconcustom.greyIcon} >
+            temparry.push(<Marker key={record.pointno} position={latlng} icon={greyIcon} >
               <Popup>
                รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status} กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
               </Popup>
             </Marker>)
           } else if (record.status=='current') {
-            temparry.push(<Marker key={record.pointno} position={latlng} icon={iconcustom.yellowIcon}>
+            temparry.push(<Marker key={record.pointno} position={latlng} icon={yellowIcon}>
               <Popup>
                 รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status}  กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
               </Popup>

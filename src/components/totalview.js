@@ -2,7 +2,6 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import 'react-bootstrap/dist/react-bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Charttotalguns from "./gunchart";
 
 const textinfo = {
     color: 'white',
