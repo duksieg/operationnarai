@@ -8,6 +8,9 @@ import LeafletMap from "../components/leafletmap"
 import Topuser from "../components/topuser"
 import Charttotalguns from '../components/gunchart'
 // markup
+
+const isBrowser = typeof window !== "undefined"
+
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
