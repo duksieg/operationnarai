@@ -1,6 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import PersonalLayout from "./PersonalLayout"
+import PersonalLayout from "./personalLayout"
 class Mainstatus extends React.Component {
     constructor(props) {
         super(props)

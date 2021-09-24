@@ -20,7 +20,7 @@ class IndexPage extends React.Component {
   getdataRow = async () => {
     let result
     try {
-      let resp = await fetch('http://localhost:4000/info')
+      let resp = await fetch(process.env.GATSBY_APP_INFO)
       result = await resp.json()
     } catch (err) {
       console.error(err)
@@ -31,7 +31,7 @@ class IndexPage extends React.Component {
   async componentDidMount() {
     try {
       let totalItem = await this.getdataRow()
-      let response = await fetch('http://localhost:4000/detail')
+      let response = await fetch(process.env.GATSBY_APP_DETAIL)
       let jsonresponse = await response.json()
       //arrystatus = jsonresponse.records
       if (jsonresponse != null) {
