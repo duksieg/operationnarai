@@ -9,12 +9,9 @@ module.exports = {
     title: "operationNarai",
   },
   plugins: [
-    "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     "gatsby-plugin-react-leaflet",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     
   ],
   
