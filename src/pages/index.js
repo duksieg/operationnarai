@@ -6,7 +6,7 @@ import Timer from '../components/time'
 import LeafletMap from "../components/leafletmap"
 import Topuser from "../components/topuser"
 import Charttotalguns from '../components/gunchart'
-import 'bootstrap/dist/js/bootstrap'
+import 'react-bootstrap/dist/react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 // markup
 
