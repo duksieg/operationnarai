@@ -1,8 +1,7 @@
 import React from 'React'
 import Personaldetail from '../components/personaldetail'
-class PersonalLayout extends React.Component{
-    
 
+class PersonalLayout extends React.Component{
     renderUser(){
         let tempArry=[]
         let datarow = this.props.user
