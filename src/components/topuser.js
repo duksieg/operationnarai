@@ -9,12 +9,10 @@ class Topuser extends React.Component {
         if (this.props.user != null) {
             let datarow = this.props.user
             datarow.forEach(userdatabyrow => {
-                console.log(userdatabyrow+"add to temp")
                 let key = uuidv4()
                 if(userdatabyrow.totalfound >0)
                 tempArry.push(<Personaldetail userdetail={userdatabyrow} key={key} ></Personaldetail>)
             });
-            console.log(tempArry)
             return tempArry
         }else{
             return tempArry

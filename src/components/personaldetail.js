@@ -1,6 +1,7 @@
 import React from "react";
 import logo from '../images/backfree500.png'
 import { Modal, Button } from 'react-bootstrap'
+const isBrowser = typeof window !== "undefined"
 class Personaldetail extends React.Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,6 @@ class Personaldetail extends React.Component {
         if(this.props.userdetail.specialcase != null && this.props.userdetail.specialcase == 'TRUE'){
             specialcriminal += ' bg-danger'
         }
-        console.log(this.props.userdetail.specialcase)
         return (
             <>
                 <div className="card text-center border-0 my-2 bg-transparent">
@@ -84,6 +84,8 @@ class Personaldetail extends React.Component {
                             <p>จำนวนเครื่องยุทธภัณฑ์ :{this.props.userdetail.ammunition}</p>
                             <p>อื่นๆ : {this.props.userdetail.etc}</p>
                             <p>รวม : {this.props.userdetail.totalfound}</p>
+                            <br/>
+                            <p>{this.props.userdetail.folderid}</p>
 
                         </Modal.Body>
                         <Modal.Footer>

@@ -32,5 +32,8 @@
     "react-leaflet": "^3.2.1",
     "react-shimmer-effects": "^1.0.2",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/leaflet.fullscreen": "^1.6.1"
   }
 }
