@@ -43,7 +43,7 @@ class Personaldetail extends React.Component {
     render() {
         let imageurl
         let specialcriminal = 'stretched-link'
-        if(this.props.userdetail.criminalimage ==null || this.props.userdetail.criminalimage=="" || this.props.userdetail.criminalimage==undefined){
+        if(this.props.userdetail.criminalimage ==null || this.props.userdetail.criminalimage=="" || this.props.userdetail.criminalimage==undefined || this.props.userdetail.criminalimage=="-"){
             imageurl=logo
         }else{
             imageurl = `https://drive.google.com/uc?id=${this.props.userdetail.criminalimage}`
@@ -85,7 +85,7 @@ class Personaldetail extends React.Component {
                             <p>อื่นๆ : {this.props.userdetail.etc}</p>
                             <p>รวม : {this.props.userdetail.totalfound}</p>
                             <br/>
-                            <p>{this.props.userdetail.folderid}</p>
+                            <a href={this.props.userdetail.folderid} className="text-wrap">Google Drive</a>
 
                         </Modal.Body>
                         <Modal.Footer>
