@@ -6,8 +6,14 @@ import blueicon from '../images/marker-icon-blue.png'
 import redicon from '../images/marker-icon-red.png'
 import yellowicon from '../images/marker-icon-yellow.png'
 import greyicon from '../images/marker-icon-grey.png'
-
-    export const greenIcon = new L.icon({
+export var greenIcon
+export var blackIcon
+export var greyIcon
+export var blueIcon
+export var yellowIcon
+export var redIcon
+if (typeof window !== 'undefined'){
+      greenIcon = new L.icon({
       iconUrl: greenicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
@@ -15,35 +21,35 @@ import greyicon from '../images/marker-icon-grey.png'
       popupAnchor: [1, -34],
       shadowSize: [41, 41]
     });
-    export const blackIcon = new L.icon({
+      blackIcon = new L.icon({
       iconUrl: blackicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [10, 41],
       popupAnchor: [2, -40]
     });
-    export const greyIcon = new L.icon({
+     greyIcon = new L.icon({
       iconUrl: greyicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [10, 41],
       popupAnchor: [2, -40]
     });
-    export const redIcon = new L.icon({
+      redIcon = new L.icon({
       iconUrl: redicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [10, 41],
       popupAnchor: [2, -40]
     });
-    export const blueIcon = new L.icon({
+      blueIcon = new L.icon({
       iconUrl: blueicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [10, 41],
       popupAnchor: [2, -40]
     });
-    export const yellowIcon = new L.icon({
+      yellowIcon = new L.icon({
       iconUrl: yellowicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
@@ -52,7 +58,7 @@ import greyicon from '../images/marker-icon-grey.png'
     });
     // let customicon = { yellowIcon, greyIcon, blackIcon, greenIcon, blackIcon }
     // return customicon
-  
+}
 
 
 
