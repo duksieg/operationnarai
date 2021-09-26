@@ -16,9 +16,9 @@ class PersonalLayout extends React.Component{
 
     render(){
         return(
-            <div className="row row-cols-3">
+           <>
             {this.renderUser()}
-            </div>
+            </>
             
         )
     }
