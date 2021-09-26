@@ -6,7 +6,7 @@ import blueicon from '../images/marker-icon-blue.png'
 import redicon from '../images/marker-icon-red.png'
 import yellowicon from '../images/marker-icon-yellow.png'
 import greyicon from '../images/marker-icon-grey.png'
-
+const isBrowser = typeof window !== "undefined"
     export const greenIcon = new L.Icon({
       iconUrl: greenicon,
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
