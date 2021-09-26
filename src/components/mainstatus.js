@@ -53,7 +53,7 @@ class Mainstatus extends React.Component {
                     tempArrycurrent.push(element)
                 } else if (element.status == 'after') {
                     tempArryafter.push(element)
-                } else if (element.status == 'abort') {
+                } else{
                     tempArryabort.push(element)
                 }
             });
@@ -85,7 +85,7 @@ class Mainstatus extends React.Component {
                     </div>
                 </div>
                 <div className="container-fluid border border-1 rounded-2">
-                <h3 className="text-center"> รายชื่อเป้าไม่พบตัวและสิ่งผิดกฎหมาย </h3>
+                <h3 className="text-center"> รายชื่อเป้าไม่ทำการเช็คอิน </h3>
                         <PersonalLayout user={this.state.abort || !this.state.loading } ></PersonalLayout>
                 </div>
             </>
