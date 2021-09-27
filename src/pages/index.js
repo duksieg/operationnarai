@@ -18,9 +18,11 @@ class IndexPage extends React.Component {
     this.state = {
       user: null,
       loading: true,
-      all: null
+      all: null,
+      looptime:new Date()
     }
   }
+  
   getdataRow = async () => {
     let result
     try {
@@ -92,9 +94,18 @@ class IndexPage extends React.Component {
     }
   }
 
+  updatetime(){
+    setInterval(()=>{
+      window.location.reload(false);
+        this.setState({looptime:new Date()})
+    },300000)
+        
+}
 
   render() {
-
+    if (typeof window !== 'undefined'){
+    {this.updatetime()}
+   }
     if (this.state.user == null) return <ShimmerSimpleGallery card imageHeight={100} row={2} col={3} gap={30} caption />
     return (
       <div className={'container-fluid mt-4'}>
