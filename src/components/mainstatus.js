@@ -53,7 +53,10 @@ class Mainstatus extends React.Component {
                     tempArrycurrent.push(element)
                 } else if (element.status == 'after') {
                     tempArryafter.push(element)
-                } else{
+                } else if(element.status == 'abort'){
+                    continue
+                }
+                else{
                     tempArryabort.push(element)
                 }
             });
