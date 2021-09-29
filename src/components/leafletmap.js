@@ -90,19 +90,19 @@ class LeafletMap extends React.Component {
                   รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status} กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
                 </Popup>
               </Marker>)
+            }else if (record.status == 'current') {
+              temparry.push(<Marker key={record.pointno} position={latlng} icon={mapicon.yellowIcon}>
+                <Popup>
+                  รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status}  กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
+                </Popup>
+              </Marker>)
             } else if (record.status != 'before' || record.status != 'after' || record.status != 'current') {
               temparry.push(<Marker key={record.pointno} position={latlng} icon={mapicon.greyIcon} >
                 <Popup>
                   รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status} กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
                 </Popup>
               </Marker>)
-            } else if (record.status == 'current') {
-              temparry.push(<Marker key={record.pointno} position={latlng} icon={mapicon.yellowIcon}>
-                <Popup>
-                  รหัสจุดค้นที่:{record.pointno} สถานะ:{record.status}  กก.ที่รับผิดชอบ:{record.dv} รวมตรวจค้นได้:{record.totalfound}
-                </Popup>
-              </Marker>)
-            }
+            } 
           } else {
           }
         } catch (err) {
