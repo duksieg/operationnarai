@@ -66,7 +66,7 @@ class IndexPage extends React.Component {
       let allrows = this.state.user.records
       //load user datarow to object as index:total
       for (let index = 0; index < allrows.length; index++) {
-        if (allrows[index].totalfound > 0 && allrows[index].status == 'after' && allrows[index].pointno != null) {
+        if (allrows[index].totalfound > 0 && allrows[index].pointno != null) {
           let total = allrows[index].totalfound
           { tempvalue[index] = total }
         } else {
