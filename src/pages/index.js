@@ -9,8 +9,6 @@ import 'react-bootstrap/dist/react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 // markup
 
-const isBrowser = typeof window !== "undefined"
-
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
@@ -129,9 +127,6 @@ class IndexPage extends React.Component {
           <LeafletMap user={!this.state.user || this.state.loading ? <ShimmerThumbnail rounded /> : this.state.user} ></LeafletMap>
           </div>
         </div>
-        {/* <div className="row mt-3">
-          <Mainstatus user={!this.state.user || this.state.loading ? <ShimmerSimpleGallery card imageHeight={100} row={2} col={3} gap={30} caption /> : this.state.user} ></Mainstatus>
-        </div> */}
       </div>
     )
 
