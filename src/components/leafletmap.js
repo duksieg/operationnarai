@@ -129,7 +129,7 @@ class LeafletMap extends React.Component {
             </div>
           </div>
         </div>
-         <MapContainer center={this.state.initcenter} fullscreenControl={true} zoom={this.state.zoomlevel}  whenCreated={map => this.setState({map})} style={{ height: '600px' }}>
+         <MapContainer center={this.state.initcenter} fullscreenControl={true} zoom={this.state.zoomlevel}  whenCreated={map => this.setState({map})} style={{ height: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -1,7 +1,6 @@
 import * as React from "react"
 import { ShimmerSimpleGallery, ShimmerThumbnail } from 'react-shimmer-effects'
 import Totalview from "../components/totalview"
-import Mainstatus from "../components/mainstatus"
 import Timer from '../components/time'
 import LeafletMap from "../components/leafletmap"
 import Topuser from "../components/topuser"
@@ -98,7 +97,7 @@ class IndexPage extends React.Component {
     setInterval(()=>{
       window.location.reload(false);
         this.setState({looptime:new Date()})
-    },300000)
+    },180000)
         
 }
 
@@ -130,9 +129,9 @@ class IndexPage extends React.Component {
           <LeafletMap user={!this.state.user || this.state.loading ? <ShimmerThumbnail rounded /> : this.state.user} ></LeafletMap>
           </div>
         </div>
-        <div className="row mt-3">
+        {/* <div className="row mt-3">
           <Mainstatus user={!this.state.user || this.state.loading ? <ShimmerSimpleGallery card imageHeight={100} row={2} col={3} gap={30} caption /> : this.state.user} ></Mainstatus>
-        </div>
+        </div> */}
       </div>
     )
 
