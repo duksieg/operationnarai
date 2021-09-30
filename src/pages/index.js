@@ -91,7 +91,7 @@ class IndexPage extends React.Component {
     }
   }
 
-  updatetime(){
+  updatetimepage(){
     setInterval(()=>{
       window.location.reload(false);
         this.setState({looptime:new Date()})
@@ -101,7 +101,8 @@ class IndexPage extends React.Component {
 
   render() {
     if (typeof window !== 'undefined'){
-    {this.updatetime()}
+    { 
+      this.updatetimepage()}
    }
     if (this.state.user == null) return <ShimmerSimpleGallery card imageHeight={100} row={2} col={3} gap={30} caption />
     return (
