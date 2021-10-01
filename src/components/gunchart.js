@@ -37,8 +37,8 @@ const options = {
 
 
 const Charttotalguns = (props) => {
-    let {normalgun,wargun,thaicraftgun,ammunition} = props.overview
-    let datainput = [normalgun, wargun, thaicraftgun, ammunition]
+    let {normalgun,wargun,thaicraftgun,ammunition,ammo} = props.overview
+    let datainput = [normalgun, wargun, thaicraftgun, ammunition,ammo]
     //datachartdatasets[0]['data']=datainput
     return (
         <>
@@ -46,20 +46,22 @@ const Charttotalguns = (props) => {
                 data={{ font: {
                 size: 40
             },
-                    labels: ['อาวุธปืนทั่วไป', 'อาวุธสงคราม', 'อาวุธปืนไทยประดิษฐ์', 'เครื่องยุทธภัณฑ์'],
+                    labels: ['อาวุธปืนทั่วไป', 'อาวุธสงคราม', 'อาวุธปืนไทยประดิษฐ์', 'เครื่องยุทธภัณฑ์','เครื่องกระสุน'],
                     datasets: [
                         {
                             backgroundColor: [
                                 'rgba(54, 162, 235, 02)',
                                 'rgba(255, 99, 132, 02)',
                                 'rgba(255, 206, 86, 02)',
-                                'rgba(75, 192, 192, 02)'
+                                'rgba(75, 192, 192, 02)',
+                                'rgba(131,129,129,1)'
                             ],
                             borderColor: [
                                 'rgba(54, 162, 235, 1)',
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(131,129,129,1)'
                             ],
                             borderWidth: 1,
                             data: datainput
