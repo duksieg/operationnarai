@@ -65,7 +65,7 @@ class Totalview extends React.Component {
                         </Card>
                         <Card border="dark" bg="light"  width="auto">
                             <Card.Header>
-                                <p >ยังไม่เช็คอิน</p>
+                                <p >จับกุมตามหมายจับ</p>
                             </Card.Header>
                             <Card.Body>
                                 <h1> {this.props.overview.notchecked}</h1>
