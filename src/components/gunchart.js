@@ -7,9 +7,9 @@ const options = {
     plugins: {
         title: {
             display: true,
-            text: 'นารายณ์ปราบศาสตรา',
+            text: 'ยุทธการสอบสวนกลางกวาดล้างปืนเถื่อน',
             font: {
-                size: 20
+                size: 30
             }
         },
         datalabels:{
@@ -43,7 +43,9 @@ const Charttotalguns = (props) => {
     return (
         <>
             <Bar className="align-self-end"
-                data={{
+                data={{ font: {
+                size: 40
+            },
                     labels: ['อาวุธปืนทั่วไป', 'อาวุธสงคราม', 'อาวุธปืนไทยประดิษฐ์', 'เครื่องยุทธภัณฑ์'],
                     datasets: [
                         {

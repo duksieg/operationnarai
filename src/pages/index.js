@@ -96,7 +96,6 @@ class IndexPage extends React.Component {
       window.location.reload(false);
         this.setState({looptime:new Date()})
     },180000)
-        
 }
 
   render() {

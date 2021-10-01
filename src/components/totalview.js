@@ -49,7 +49,7 @@ class Totalview extends React.Component {
                 <div className="row mt-3 text-center">
                     <Card border="dark" text="white" bg="danger" >
                         <Card.Body>
-                            <h1 className="display-2" >ตรวจยึดอาวุธปืนรวม {this.props.overview.total}</h1>
+                            <h1 className="display-4" >อาวุธปืนและเครื่องยุทธภัณฑ์ {this.props.overview.total}</h1>
                         </Card.Body>
                     </Card>
                 </div>
